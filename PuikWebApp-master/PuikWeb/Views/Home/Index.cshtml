@@ -1,0 +1,433 @@
+﻿@model IEnumerable<WebUI.Models.Product>
+
+@{
+ViewData["Title"] = "Products";
+}
+
+<div class="top-selling-area pb-100 pt-95 gray-bg-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="section-title top-selling-title text-center pb-47">
+                    <span class="p-subtitle p-subtitle-2">Explore The Lookbook</span>
+                    <h3 class="p-title pb-15 mb-0">Top Selling Products</h3>
+                    <p class="p-desc">Commodo sociosqu venenatis cras dolor sagittis integer luctus sem primis eget
+                        maecenas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="single-product-6-wrapper">
+            <div class="row pb-20 gx-0">
+                @if (Model != null && Model.Any())
+                {
+                @foreach (var item in Model)
+                {
+                <div class="col-md-3">
+                    <div class="single-product single-product-6 wow fadeInUp" data-wow-delay=".1s">
+                        <div class="product-thumb">
+                            <img src="~/Upload/ProductImages/@item.ImgUrl" alt="#">
+                            <div class="cart-btn cart-btn-1 p-abs">
+                                <a href="#">Add to cart</a>
+                            </div>
+                            <span class="discount discount-3 p-abs">-20%</span>
+                            <div class="product-action product-action-1 p-abs">
+                                <a href="#" class="icon-box icon-box-1 view-details" data-bs-toggle="modal"
+                                   data-bs-target="#productModal" data-product-id="@item.Id">
+                                    <i class="fal fa-eye"></i>
+                                    <i class="fal fa-eye"></i>
+                                </a>
+                                <form asp-action="addWishList" asp-controller="User" asp-area="Admin" method="post">
+                                    <input type="hidden" name="id" value="@item.Id"/>
+                                    <button type="submit" class="icon-box icon-box-1">
+                                        <i class="fal fa-heart"></i>
+                                        <i class="fal fa-heart"></i>
+                                    </button>
+                                </form>
+                                <a href="#" class="icon-box icon-box-1">
+                                    <i class="fal fa-layer-group"></i>
+                                    <i class="fal fa-layer-group"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h4 class="pro-title pro-title-1">
+                                <a href="product-details.html">@item.Name</a>
+                            </h4>
+                            <div class="pro-price">
+                                <span>£@item.Price</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+                }
+                else
+                {
+                <p>No products available.</p>
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="btn-area mt-30 text-center wow fadeInUp" data-wow-delay="1.2s">
+                    <div class="p-btn p-btn-1">
+                        <a asp-controller="Home" asp-action="Index">SHOW ALL PRODUCTS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- blog area start -->
+<div class="blog-area pt-95 pb-100 gray-bg-4">
+    <div class="container">
+        <div class="row mb-45">
+            <div class="col-xxl-12">
+                <div class="section-title text-center">
+                    <span class="p-subtitle p-subtitle-2">Explore The Blog</span>
+                    <h3 class="p-title pb-15 mb-0">Latest Blog Posts</h3>
+                    <p class="p-desc">
+                        Commodo sociosqu venenatis cras dolor sagittis integer luctus sem primis
+                        eget maecenas.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="blog-active-6 owl-carousel">
+            <div class="col-xxl-12">
+                <div class="single-blog single-blog-6 p-rel wow fadeInUp" data-wow-delay=".4s">
+                    <div class="blog-thumb  p-rel">
+                        <a href="blog-details.html">
+                            <img src="~/assets/img/blog/6/blog-1.jpg" alt="#">
+                        </a>
+                    </div>
+                    <div class="blog-content blog-content-2 blog-content-6">
+                        <a href="#" class="tag-btn tag-btn-2 tag-btn-6 mb-15">SHOPPING</a>
+                        <h5 class="blog-title blog-title-5 blog-title-6">
+                            <a href="blog-details.html">Bringing LED lighting Into Your Home Shouldn't be
+                                Complicated.</a>
+                        </h5>
+                        <div class="border-bottom-gray">
+                            <p>
+                                Claritas est etiam processus A Capitalize on low
+                                hanging fruit to identify a ballpark value added
+                                activity to beta test...
+                            </p>
+                        </div>
+                        <div class="blog-meta blog-meta-5 pt-15">
+                            Post date
+                            <a href="#">
+                                <span>20 Sep 2020</span>
+                            </a> / By
+                            <a href="#">
+                                <span>Admin.</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-12">
+                <div class="single-blog single-blog-6 p-rel wow fadeInUp" data-wow-delay=".4s">
+                    <div class="blog-thumb  p-rel">
+                        <a href="blog-details.html">
+                            <img src="~/assets/img/blog/6/blog-2.jpg" alt="#">
+                        </a>
+                    </div>
+                    <div class="blog-content blog-content-2 blog-content-6">
+                        <a href="#" class="tag-btn tag-btn-2 tag-btn-6 mb-15">Fashion</a>
+                        <h5 class="blog-title blog-title-5 blog-title-6">
+                            <a href="blog-details.html">The Next 10 Things You Should Do For Education Success</a>
+                        </h5>
+                        <div class="border-bottom-gray">
+                            <p>
+                                Claritas est etiam processus A Capitalize on low
+                                hanging fruit to identify a ballpark value added
+                                activity to beta test...
+                            </p>
+                        </div>
+                        <div class="blog-meta blog-meta-5 pt-15">
+                            Post date
+                            <a href="#">
+                                <span>20 Sep 2020</span>
+                            </a> / By
+                            <a href="#">
+                                <span>Admin.</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-12">
+                <div class="single-blog single-blog-6 p-rel wow fadeInUp" data-wow-delay=".4s">
+                    <div class="blog-thumb  p-rel">
+                        <a href="blog-details.html">
+                            <img src="~/assets/img/blog/6/blog-4.jpg" alt="#">
+                        </a>
+                    </div>
+                    <div class="blog-content blog-content-2 blog-content-6">
+                        <a href="#" class="tag-btn tag-btn-2 tag-btn-6 mb-15">Fashion</a>
+                        <h5 class="blog-title blog-title-5 blog-title-6">
+                            <a href="blog-details.html">Don't Waste Time! 10 Facts Until You Reach Your Education</a>
+                        </h5>
+                        <div class="border-bottom-gray">
+                            <p>
+                                Claritas est etiam processus A Capitalize on low
+                                hanging fruit to identify a ballpark value added
+                                activity to beta test...
+                            </p>
+                        </div>
+                        <div class="blog-meta blog-meta-5 pt-15">
+                            Post date
+                            <a href="#">
+                                <span>20 Sep 2020</span>
+                            </a> / By
+                            <a href="#">
+                                <span>Admin.</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="subscribe-area subscribe-area-2 black-bg gray-bg-2 pt-95 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="section-title text-center">
+                    <span class="p-subtitle p-subtitle-2">OUR NEWSLETTER</span>
+                    <h3 class="p-title pb-15 mb-0">join our newsletter</h3>
+                    <p class="p-desc  pb-15">
+                        Subscribe to the Puik Store mailing list to receive updates on new
+                        arrivals, special offers<br>
+                        and other discount information.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xxl-8 col-xl-8">
+                <div class="subscribe-form text-center">
+                    <form action="#">
+                        <input type="text" placeholder="Your email address...">
+                        <button type="submit" class="subscribe-btn subscribe-btn-2">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- subscribe area end -->
+
+<!-- popup area start -->
+<div class="subscribe-popup d-none">
+    <div class="subscribe-wrapper s-popup-padding h-100">
+        <div class="pl-75 pr-75">
+            <div class="row">
+                <div class="col-xxl-6">
+                    <div class="subscribe-content">
+                        <div class="logo mb-65">
+                            <a href="index.html">
+                                <img src="~/assets/img/logo/logo-black.png" alt="">
+                            </a>
+                        </div>
+                        <h4 class="popup-title">Comming Soon</h4>
+                        <p class="popup-desc">
+                            We’ll be here soon with our new<br>
+                            awesome site, subscribe to be notified.
+                        </p>
+                        <div class="comming-countdown  pb-45">
+                            <div class="countdown-inner" data-countdown="" data-date="Mar 02 2022 20:20:22">
+                                <ul>
+                                    <li><span data-days="">401</span> Day</li>
+                                    <li><span data-hours="">1</span> hrs</li>
+                                    <li><span data-minutes="">29</span> min</li>
+                                    <li><span data-seconds="">40</span> sec</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="subscribe-form-2">
+                            <input type="email" placeholder="Enter your email...">
+                            <button class="p-btn border-0">Subscribe</button>
+                        </div>
+                        <div class="popup-social">
+                            <a href="#">
+                                <i class="fal fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="subscribe-thumb" data-background="assets/img/popup/fashion/subscribe-bg.jpg"></div>
+</div>
+<!-- popup area end -->
+
+<!-- product modal area start -->
+<div class="product__modal-area modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="product__modal-inner position-relative">
+                <div class="product__modal-buttons position-absolute" style="top: 10px; right: 10px;">
+                    <button class="product__modal-close" data-bs-dismiss="modal" aria-label="Close"
+                            style="border: none; background: none;">
+                        <i class="ti-close" style="font-size: 24px;"></i>
+                    </button>
+                    <button class="product__modal-wishlist" style="border: none; background: none; margin-top: 10px;">
+                        <i class="fal fa-heart" style="font-size: 24px;"></i>
+                    </button>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product__modal-thumb w-img">
+                            <img id="productModalImg" src="" alt="Product Image">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="product__modal-content">
+                            <h3 class="product__modal-title" id="productModalTitle">
+                                <a href="#">Product Name</a>
+                            </h3>
+                            <div class="product__modal-price mb-10">
+                                <span class="price new-price" id="productModalPrice">£0.00</span>
+                            </div>
+                            <div class="product__modal-category mb-10">
+                                <span class="category" id="productModalCategory">Category</span>
+                            </div>
+                            <div class="product__modal-availability mb-10">
+                                <span id="productModalAvailability"></span>
+                            </div>
+                            <div class="product__modal-quantity mb-15">
+                                <h5>Quantity:</h5>
+                                <div class="pro-quan-area d-flex align-items-center">
+                                    <div class="product-quantity mr-20 mb-25">
+                                        <div class="cart-plus-minus p-relative">
+                                            <input type="text" value="1"/>
+                                        </div>
+                                    </div>
+                                    <div class="product__modal-cart mb-25">
+                                        <button class="product__modal-cart-btn" type="submit">Add to cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Diğer içerikler buraya eklenebilir -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- product modal area end -->
+
+<!-- JavaScript Kodunu Buraya Ekleyin -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.view-details').on('click', function () {
+            var productId = $(this).data('product-id');
+
+            // Ajax çağrısı ile ürün detaylarını al
+            $.ajax({
+                url: '@Url.Action("GetProductDetails", "Product", new { area = "Admin" })',
+                type: 'GET',
+                data: {id: productId},
+                success: function (product) {
+                    // Modal içeriğini güncelle
+                    $('#productModalTitle a').text(product.name);
+                    $('#productModalImg').attr('src', '/Upload/ProductImages/' + product.imgUrl);
+                    $('#productModalPrice').text('£' + product.price);
+                    $('#productModalCategory').text(product.category);
+                    $('#productModalDescription').text(product.description);
+
+                    if (!product.IsDeleted) {
+                        $('#productModalAvailability').text('Available').css('color', 'green');
+                    } else {
+                        $('#productModalAvailability').text('Not Available').css('color', 'red');
+                    }
+                    // Diğer modal alanlarını da güncelleyebilirsiniz
+                }
+            });
+        });
+    });
+</script>
+<!-- JavaScript Kodu Bitiş -->
+
+<!-- CSS Kodu -->
+<style>
+    .product__modal-inner {
+        padding: 20px;
+    }
+
+    .product__modal-thumb {
+        text-align: center;
+    }
+
+    .product__modal-thumb img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .product__modal-content {
+        padding: 20px;
+    }
+
+    .product__modal-cart-btn {
+        background-color: #000; /* Siyah renk */
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .product__modal-cart-btn:hover {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #000;
+    }
+
+    .product__modal-buttons {
+        position: absolute;
+        top: 10px; /* "Close" butonunu hizalayın */
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product__modal-close, .product__modal-wishlist {
+        background-color: transparent;
+        border: none;
+        color: #000;
+        font-size: 24px; /* "Close" butonuyla aynı boyut */
+        cursor: pointer;
+    }
+
+    .product__modal-close i, .product__modal-wishlist i {
+        transition: color 0.3s;
+    }
+
+    .product__modal-close i:hover, .product__modal-wishlist i:hover {
+        color: #ff5a5f;
+    }
+
+    .product__modal-meta {
+        margin-top: 20px;
+    }
+
+    .product__modal-meta p {
+        margin: 0;
+        padding: 5px 0;
+    }
+
+</style>
+<!-- CSS Kodu Bitiş -->

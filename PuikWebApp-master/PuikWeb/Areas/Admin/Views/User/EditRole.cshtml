@@ -1,0 +1,38 @@
+﻿@using WebUI.Models;
+@model AppUser
+@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> _userManager
+
+
+<dl>
+
+    <dt>Firstname & Lastname</dt>
+    <dd>@Model.FirstName @Model.LastName</dd>
+    <dt>Email</dt>
+    <dd>@Model.Email</dd>
+
+
+</dl>
+
+<table class="table table-dark">
+
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in await _userManager.GetRolesAsync(Model))
+        {
+            <tr>
+                <td>@item</td>
+                <td><a asp-area="Admin" asp-controller="User" asp-action="Delete" asp-route-userId="@Model.Id" asp-route-role="@item" class="btn btn-danger">Delete Role</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+

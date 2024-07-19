@@ -1,0 +1,68 @@
+﻿@using WebUI.DTOs;
+@model RegisterDTO
+
+
+
+<!-- login area start -->
+<section class="login-area pt-100 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="basic-login">
+                    <h3 class="text-center mb-60">Signup From Here</h3>
+                    <form method="post" action="#">
+                        <label asp-for="FirstName">First Name</label>
+                        <input asp-for="FirstName" type="text" placeholder="Enter First Name" />
+
+                        <label asp-for="LastName">Last Name</label>
+                        <input asp-for="LastName" type="text" placeholder="Enter Last Name" />
+
+
+                        <label asp-for="Email">Email Address</label>
+                        <input asp-for="Email" type="text" placeholder="Enter Email address" />
+
+
+                        <label asp-for="Password">Password</label>
+                        <input  asp-for="Password" type="password" placeholder="Enter password" />
+
+                        <label class="form-label" asp-for="ConfirmPassword">Confirm Password</label>
+                        <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="Comfirm password" />
+
+                        <div class="mt-10"></div>
+                        <button class="s-btn s-btn-4 w-100">Register Now</button>
+                        <div class="or-divide"><span>or</span></div>
+                        <a asp-action="Login" asp-controller="Auth" class="s-btn s-btn-2 w-100">login Now</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- login area end -->
+@* 
+<div class="container">
+    <form method="post">
+        <div class="form-outline mb-4">
+            <input asp-for="FirstName" class="form-control" />
+            <label asp-for="FirstName">First Name</label>
+        </div>
+        <div class="form-outline mb-4">
+            <input asp-for="LastName" class="form-control" />
+            <label asp-for="LastName">Last Name</label>
+        </div>
+        <div class="form-outline mb-4">
+            <input asp-for="Email" class="form-control" />
+            <label asp-for="Email">Email</label>
+        </div>
+        <div class="form-outline mb-4">
+            <input type="password" asp-for="Password" class="form-control" />
+            <label class="form-label" asp-for="Password">Password</label>
+        </div>
+        <div class="form-outline mb-4">
+            <input type="password" asp-for="ConfirmPassword" class="form-control" />
+            <label class="form-label" asp-for="ConfirmPassword">Confirm Password</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
+    </form>
+</div> *@

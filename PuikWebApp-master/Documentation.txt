@@ -1,0 +1,4 @@
+1. Login Register etmemisden qabag /auth/createdefaultrole yaz
+2. Admin Panel giris - /admin/dashboard
+3. HomePage de navbarda Login ve Register butonlari islekdir. 
+4. Search etdikden sonra evvelki kimi butun productlari gormek ucun pagede Show All Product butonu movcuddur

@@ -1,0 +1,36 @@
+﻿@using WebUI.DTOs;
+@model LoginDTO
+<!-- login area start -->
+<section class="login-area pt-100 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="basic-login">
+                    <h3 class="text-center mb-60">Login From Here</h3>
+                    <form method="post">
+                        <label asp-for="Email">Email Address</label>
+                        <input asp-for="Email" type="text" placeholder="Email address..." />
+
+                        <label asp-for="Password">Password</label>
+                        <input asp-for="Password" type="password" placeholder="Enter password..." />
+                        <div class="login-action mb-20 fix">
+                            <span class="log-rem f-left">
+                                <input asp-for="RememberMe" type="checkbox" />
+                                <label asp-for="RememberMe">Remember me!</label>
+                            </span>
+                            <span class="forgot-login f-right">
+                                <a href="#">Lost your password?</a>
+                            </span>
+                        </div>
+                        <button type="submit" class="s-btn s-btn-4 w-100">Login Now</button>
+                        <div class="or-divide"><span>or</span></div>
+                        <a asp-action="Register" asp-controller="Auth" class="s-btn s-btn-2 w-100">Register Now</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- login area end -->
+
+

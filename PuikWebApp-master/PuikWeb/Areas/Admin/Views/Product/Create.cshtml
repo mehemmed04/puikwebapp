@@ -1,0 +1,50 @@
+﻿@using WebUI.Areas.Admin.DTOs;
+@using WebUI.Models
+@model CreateProductDTO
+@{
+     ViewData["Title"] = "Categories";
+    var categories = ViewData["Category"] as List<Category>
+    ;
+    }
+
+
+    <h1>Create Product</h1>
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="File" class="control-label"></label>
+            <input asp-for="File" type="file" class="form-control" />
+            <span asp-validation-for="File" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryId" class="control-label"></label>
+        <select asp-for=CategoryId class="custom-select">
+            <option selected disabled>Categories</option>
+            @if (categories != null)
+            {
+                @foreach (Category category in categories)
+                {
+                    <option value="@category.Id">@category.CategoryName</option>
+                }
+            }
+        </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
